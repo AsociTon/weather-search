@@ -1,6 +1,6 @@
 <?php
 
-$city = $_GET["city"];
+$city = $_POST["city"];
 $result = "";
 $err_msg = "";
 $show = "none";
@@ -47,22 +47,11 @@ if($result){
     <title>Weather</title>
     <style = "text/css">
 
-      #city {
+      .container{
 
-        width: 400px;
-
-      }
-
-      #form{
-
-        margin-top: 250px;
-        margin-left: 300px;
-
-      }
-
-      #but1 {
-
-        margin-left: 165px;
+        margin-top: 10px;
+        text-align: center;
+        width: 450px;
 
       }
 
@@ -86,7 +75,7 @@ if($result){
   </head>
   <body style="background: url(background.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
     <div class = "container">
-      <form class = "justify-content-center" id="form">
+      <form class = "justify-content-center" method="post">
         <div class="form-group">
           <label for="city"><h1>Let's check the Weather!</h1></label>
           <input type="text" name="city" class="form-control" id="city" value="<?php if($city){
@@ -113,6 +102,7 @@ if($result){
 
         if($("#city").val().length == 0){
 
+          $("#result").css("display","none");
           $("#error").html("The city name is required.");
           $("#error").css("display","block");
 
